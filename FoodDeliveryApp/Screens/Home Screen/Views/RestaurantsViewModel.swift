@@ -71,11 +71,13 @@ class RestaurantsViewModel:Identifiable{
             }
         }
     
-    let offersMockData: [String] = [
-        "10% off on all orders",
-        "Free delivery on orders over 50 EGP",
-        "Buy one get one 50% off",
-        "UP to 140 EGP off on all orders",
-        "Monthly free delivery"
+    let offerImageName: [String] = [
+        "IMG_1713",
+        "IMG_1714",
+        "IMG_1715",
+        "IMG_1716",
+        "IMG_1717",
+        "IMG_1718",
+        "IMG_1719"
     ]
 }

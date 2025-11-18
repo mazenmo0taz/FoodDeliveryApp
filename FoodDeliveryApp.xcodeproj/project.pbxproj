@@ -17,7 +17,6 @@
 		BAFC71802ECABAD500D03760 /* ToolBarButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFC71692ECABAD500D03760 /* ToolBarButtonStyle.swift */; };
 		BAFC71812ECABAD500D03760 /* FoodScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFC716B2ECABAD500D03760 /* FoodScreen.swift */; };
 		BAFC71822ECABAD500D03760 /* CartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFC71702ECABAD500D03760 /* CartScreen.swift */; };
-		BAFC71832ECABAD500D03760 /* CategoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFC71712ECABAD500D03760 /* CategoriesModel.swift */; };
 		BAFC71842ECABAD500D03760 /* FoodDeliveryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFC71722ECABAD500D03760 /* FoodDeliveryApp.swift */; };
 		BAFC71852ECABAD500D03760 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFC71732ECABAD500D03760 /* Modifiers.swift */; };
 		BAFC71862ECABAD500D03760 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFC71742ECABAD500D03760 /* RestaurantDetailView.swift */; };
@@ -42,7 +41,6 @@
 		BAFC716B2ECABAD500D03760 /* FoodScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodScreen.swift; sourceTree = "<group>"; };
 		BAFC716F2ECABAD500D03760 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAFC71702ECABAD500D03760 /* CartScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartScreen.swift; sourceTree = "<group>"; };
-		BAFC71712ECABAD500D03760 /* CategoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesModel.swift; sourceTree = "<group>"; };
 		BAFC71722ECABAD500D03760 /* FoodDeliveryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDeliveryApp.swift; sourceTree = "<group>"; };
 		BAFC71732ECABAD500D03760 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		BAFC71742ECABAD500D03760 /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 				BAFC716D2ECABAD500D03760 /* Home Screen */,
 				BAFC71962ECABCD900D03760 /* Cart Screen */,
 				BAFC71942ECABC1300D03760 /* Restaurant Details Screen */,
-				BAFC71752ECABAD500D03760 /* RestaurantDetailViewModel.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -134,7 +131,6 @@
 				BAFC718E2ECABBA200D03760 /* Models */,
 				BAFC716E2ECABAD500D03760 /* Screens */,
 				BAFC716F2ECABAD500D03760 /* Assets.xcassets */,
-				BAFC71712ECABAD500D03760 /* CategoriesModel.swift */,
 			);
 			path = FoodDeliveryApp;
 			sourceTree = "<group>";
@@ -185,6 +181,7 @@
 		BAFC71942ECABC1300D03760 /* Restaurant Details Screen */ = {
 			isa = PBXGroup;
 			children = (
+				BAFC71752ECABAD500D03760 /* RestaurantDetailViewModel.swift */,
 				BAFC71952ECABCAA00D03760 /* Views */,
 			);
 			path = "Restaurant Details Screen";
@@ -303,7 +300,6 @@
 				BAFC71802ECABAD500D03760 /* ToolBarButtonStyle.swift in Sources */,
 				BAFC71812ECABAD500D03760 /* FoodScreen.swift in Sources */,
 				BAFC71822ECABAD500D03760 /* CartScreen.swift in Sources */,
-				BAFC71832ECABAD500D03760 /* CategoriesModel.swift in Sources */,
 				BAFC71842ECABAD500D03760 /* FoodDeliveryApp.swift in Sources */,
 				BAFC719C2ECAD54800D03760 /* MenuItemsModel.swift in Sources */,
 				BAFC71852ECABAD500D03760 /* Modifiers.swift in Sources */,

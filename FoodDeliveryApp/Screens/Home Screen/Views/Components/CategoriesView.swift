@@ -8,30 +8,41 @@
 import SwiftUI
 
 struct CategoriesView: View {
+    let categoriesImages: [String:String] = [
+        "Fast Food":"IMG_1720",
+        "Dessert":"IMG_1721",
+        "Drinks":"IMG_1722",
+        "Beverages":"IMG_1724",
+        "Snacks":"IMG_1723",
+        "Meat":"IMG_1725",
+        "Seafood":"IMG_1726"
+    ]
+    
     var body: some View {
-        
         ScrollView(.horizontal,showsIndicators: false){
             LazyHStack(spacing:15) {
-                ForEach(CategsMockData.categories){ categorie in
+                
+                ForEach(Array(categoriesImages.keys),id: \.self){ key in
                     VStack {
                         ZStack{
-                            Circle()
-                                .fill(Color.gray.opacity(0.2))
-                                .cornerRadius(10)
-                            Image(systemName: "pencil.tip.crop.circle.fill")
+                            Image("\(categoriesImages[key]!)")
                                 .resizable()
-                                .scaledToFit()
-                                .frame(width:60, height:60)
+                                .scaledToFill()
+                                .frame(width:75, height:75)
+                                .shadow(radius: 8)
+                                .clipShape(Circle())
                         }
-                        Text(categorie.name)
+                        Spacer()
+                        Text(key)
                             .font(.callout)
                             .bold()
                     }
-                    .frame(width: 80)
+                    .frame(width: 90)
                 }
             }
         }
-        .frame(height:120)
+        .frame(height:110)
+        .padding(.vertical,10)
     }
 }
 

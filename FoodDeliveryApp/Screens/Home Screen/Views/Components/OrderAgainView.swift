@@ -15,7 +15,7 @@ struct OrderAgainView: View {
                 .bold()
             ScrollView(.horizontal,showsIndicators: false){
                 HStack(spacing:12) {
-                    ForEach(0..<8){ _ in
+                    ForEach(0..<8){ i in
                         if viewModel.isImagesLoading{
                             ProgressView()
                             .frame(width:100)
@@ -29,7 +29,7 @@ struct OrderAgainView: View {
                                     .background(.gray)
                                     .cornerRadius(10)
                                 
-                                Text(viewModel.restaurants[Int.random(in: 1..<20)].name)
+                                Text(viewModel.restaurants[i+1].name)
                                     .foregroundColor(.white)
                                     .padding(8)
                                     .shadow(radius: 5)
@@ -48,6 +48,8 @@ struct OrderAgainView: View {
             .frame(height:100)
         }
         .padding(.top,25)
+        .padding(.bottom,10)
+        
     }
 }
 
