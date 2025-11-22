@@ -13,7 +13,9 @@ struct ToolBarButtonLabel: View {
         ZStack {
             Circle()
                 .stroke(.tertiary, lineWidth: 1)
+                .background(Color.white)
                 .frame(width: 40, height: 40)
+                .clipShape(Circle())
             Image(systemName: imageName)
                 .resizable()
                 .scaledToFit()

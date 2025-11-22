@@ -8,6 +8,7 @@
 import SwiftUI
 struct OrderAgainView: View {
     var viewModel:RestaurantsViewModel
+    @State var promoImages:[Image] = []
     var body: some View {
         VStack(alignment:.leading){
             Text("Order again")
@@ -18,11 +19,10 @@ struct OrderAgainView: View {
                     ForEach(0..<8){ i in
                         if viewModel.isImagesLoading{
                             ProgressView()
-                            .frame(width:100)
-                        }else{
-                            let promoImage = viewModel.restaurantImages.values.randomElement() ?? Image("restaurantImagePH")
+                                .frame(width: 100)
+                        }else if !promoImages.isEmpty && i < promoImages.count {
                             ZStack(alignment: .bottom){
-                                promoImage
+                                promoImages[i]
                                     .resizable()
                                     .frame(width: 100)
                                     .aspectRatio(contentMode: .fit)
@@ -47,8 +47,15 @@ struct OrderAgainView: View {
             }
             .frame(height:100)
         }
-        .padding(.top,25)
-        .padding(.bottom,10)
+        .padding(.vertical,30)
+        .onAppear {
+            if !viewModel.isImagesLoading && promoImages.isEmpty {
+                let images = Array(viewModel.restaurantImages.values)
+                promoImages = (0..<8).map { _ in
+                    images.randomElement() ?? Image("restaurantImagePH")
+                }
+            }
+        }
         
     }
 }

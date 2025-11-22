@@ -14,19 +14,3 @@ struct MenuItem: Codable {
     let imageUrl: String
 }
 
-
-struct MenuItemm: Identifiable, Codable {
-    let id: String
-    let name: String
-    let description: String
-    let price: Double
-    let imageURL: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id = "itemID"
-        case name = "itemName"
-        case description = "itemDescription"
-        case price = "itemPrice"
-        case imageURL = "imageUrl"
-    }
-}

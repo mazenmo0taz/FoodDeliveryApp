@@ -40,18 +40,24 @@ struct BaseApi {
     }
     
     func downloadImage(from urlString: String) async throws -> Image? {
-        guard let url = URL(string: urlString) else{
-            return nil
+        if let uiimage = ImageCache.shared.get(forKey: urlString) {
+            let image = Image(uiImage: uiimage)
+            return image
+        }else {
+            guard let url = URL(string: urlString) else{
+                return nil
+            }
+            let (data, _) = try await URLSession.shared.data(from: url)
+            guard let data = data as Data? else {
+                return nil
+            }
+            guard let uiImage = UIImage(data: data) else{
+                return nil
+            }
+            ImageCache.shared.set(uiImage, forKey: urlString)
+            let image = Image(uiImage: uiImage)
+            return image
         }
-        let (data, _) = try await URLSession.shared.data(from: url)
-        guard let data = data as Data? else {
-            return nil
-        }
-        guard let uiImage = UIImage(data: data) else{
-            return nil
-        }
-        let image = Image(uiImage: uiImage)
-        return image
     }
     
 }

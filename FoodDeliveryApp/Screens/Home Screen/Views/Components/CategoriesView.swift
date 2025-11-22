@@ -19,30 +19,35 @@ struct CategoriesView: View {
     ]
     
     var body: some View {
-        ScrollView(.horizontal,showsIndicators: false){
-            LazyHStack(spacing:15) {
-                
-                ForEach(Array(categoriesImages.keys),id: \.self){ key in
-                    VStack {
-                        ZStack{
-                            Image("\(categoriesImages[key]!)")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width:75, height:75)
-                                .shadow(radius: 8)
-                                .clipShape(Circle())
+        VStack(alignment:.leading,spacing: 15) {
+            Text("All Restaurants")
+                .font(.title2)
+                .fontWeight(.semibold)
+            ScrollView(.horizontal,showsIndicators: false){
+                LazyHStack(spacing:15) {
+                    ForEach(Array(categoriesImages.keys),id: \.self){ key in
+                        VStack {
+                            ZStack{
+                                Image("\(categoriesImages[key]!)")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width:75, height:75)
+                                    .shadow(radius: 8)
+                                    .clipShape(Circle())
+                            }
+                            Spacer()
+                            Text(key)
+                                .font(.callout)
+                                .bold()
                         }
-                        Spacer()
-                        Text(key)
-                            .font(.callout)
-                            .bold()
+                        .frame(width: 90)
                     }
-                    .frame(width: 90)
                 }
             }
+            .frame(height:110)
+            .padding(.vertical,10)
         }
-        .frame(height:110)
-        .padding(.vertical,10)
+        
     }
 }
 

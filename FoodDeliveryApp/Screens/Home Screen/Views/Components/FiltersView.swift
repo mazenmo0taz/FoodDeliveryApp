@@ -22,7 +22,7 @@ struct FiltersView: View {
                             .bold()
                         Image(systemName: "arrow.down")
                     }
-                    .frame(height:35)
+                
                 }
                 .modifier(CapsuleShapeModifier(color: .clear))
                 .modifier(StrokeLineModifier())

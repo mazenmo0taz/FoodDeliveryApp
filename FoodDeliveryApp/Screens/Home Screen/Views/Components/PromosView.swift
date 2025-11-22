@@ -10,7 +10,7 @@ struct PromosCardView: View {
     var body: some View {
         ScrollView(.horizontal,showsIndicators: false){
             HStack(spacing:12){
-                ForEach(0..<7) { i in
+                ForEach(0..<6) { i in
                     let promoImage = Image("\(viewModel.offerImageName[i])")
                     ZStack(alignment: .topTrailing){
                         promoImage

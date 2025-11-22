@@ -6,8 +6,8 @@
 //
 
 import Foundation
-struct Restaurant:Decodable,Identifiable {
-    var id = UUID()
+struct Restaurant:Decodable,Hashable{
+//    var id = UUID()
     var restaurantID: Int
     var name: String
     var image: String
@@ -25,4 +25,13 @@ struct APIRestaurantData:Decodable {
         case id = "restaurantID"
         case name = "restaurantName"
     }
+}
+
+struct RestaurantMockData {
+    static let restaurants = [
+        Restaurant(restaurantID: 1, name: "Placeholder", image: "restaurantImagePH", rating: 4, timeToDeliver: 30, deliveryFee: 50, haveDiscount: true, isFavorite: false),
+        Restaurant(restaurantID: 2, name: "Placeholder", image: "restaurantImagePH", rating: 4, timeToDeliver: 30, deliveryFee: 50, haveDiscount: true, isFavorite: false),
+        Restaurant(restaurantID: 3, name: "Placeholder", image: "restaurantImagePH", rating: 4, timeToDeliver: 30, deliveryFee: 50, haveDiscount: true, isFavorite: false),
+        Restaurant(restaurantID: 4, name: "Placeholder", image: "restaurantImagePH", rating: 4, timeToDeliver: 30, deliveryFee: 50, haveDiscount: true, isFavorite: false),
+    ]
 }

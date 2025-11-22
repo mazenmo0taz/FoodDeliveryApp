@@ -10,7 +10,7 @@ struct CapsuleShapeModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding()
-            .frame(height: 40)
+            .frame(height: 45)
             .background(color)
             .clipShape(Capsule())
     }

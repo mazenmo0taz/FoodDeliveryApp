@@ -27,6 +27,7 @@ struct FoodScreen: View {
                         .background(Color.white)
                 }
             }
+            
             .padding(.leading)
             .toolbar{
                 ToolbarItem(placement: .topBarLeading) {
@@ -35,7 +36,7 @@ struct FoodScreen: View {
                         Text("Deliver to Apartment")
                             .fontWeight(.bold)
                     }
-                    .padding(.bottom,10)
+                    .padding(.vertical,10)
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
@@ -52,11 +53,15 @@ struct FoodScreen: View {
                             ToolBarButtonLabel(imageName:"bag.fill")
                         }
                     }
-                    .padding(.bottom,10)
+                    .padding(.vertical,10)
                 }
             }
             .task {
                 await viewModel.getRestaurants()
+            }
+            .navigationDestination(for: Restaurant.self){ (restaurant) in
+                let restaurantDetailsVM = RestaurantDetailViewModel(restaurant: restaurant, MenuItems: viewModel.RestaurantsMenuItems[restaurant.restaurantID] ?? [], restaurantImage: viewModel.restaurantImages[restaurant.restaurantID] ?? Image("restaurantImagePH"))
+                RestaurantDetailView(viewModel: restaurantDetailsVM)
             }
         }
         

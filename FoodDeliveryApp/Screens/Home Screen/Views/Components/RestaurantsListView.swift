@@ -10,25 +10,19 @@ import SwiftUI
 struct RestaurantsListView: View {
     var viewModel:RestaurantsViewModel
     var body: some View {
-        LazyVStack(alignment:.leading,spacing:24){
-            Text("All Restaurants")
-                .font(.title2)
-                .fontWeight(.semibold)
-            
-            ForEach(viewModel.restaurants){ restaurant in
-                RestaurantCardView(restaurant: restaurant, viewModel: viewModel)
-                    .onTapGesture {
-                        viewModel.selectedRestaurant = restaurant
-                    }
+        ForEach(viewModel.restaurants.isEmpty ? RestaurantMockData.restaurants : viewModel.restaurants ,id: \.self){ restaurant in
+                NavigationLink(value: restaurant){
+                    RestaurantCell(restaurant: restaurant, viewModel: viewModel)
+                }
             }
             .redacted(reason: viewModel.isDataLoading ? .placeholder : [])
-        }
-        
     }
+    
 }
 
 
-struct RestaurantCardView: View {
+
+struct RestaurantCell: View {
     @State var restaurant:Restaurant
     var viewModel :RestaurantsViewModel
     var body: some View {
@@ -59,7 +53,6 @@ struct RestaurantCardView: View {
                     .foregroundStyle(.secondary)
                     .frame(width:130,height: 110)
             }
-            
             VStack(alignment:.leading, spacing:10){
                 Text(restaurant.name)
                     .font(.title2)

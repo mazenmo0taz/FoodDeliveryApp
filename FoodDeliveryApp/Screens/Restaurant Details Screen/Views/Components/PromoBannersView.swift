@@ -12,18 +12,18 @@ struct PromoBannersView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 12) {
-                ForEach(viewModel.promosCrads){
-                    
+                ForEach(viewModel.promosArray,id: \.self){ promo in
+                    promo
                 }
-                PromoCrad(text: "20% off select items", actionText: "View Items")
-                PromoCrad(text: "EGP 30 off with rewards", actionText: "redeem")
+             
             }
             .padding(.horizontal)
+            .padding(.vertical,5)
         }
     }
 }
 
-struct PromoCrad: View {
+struct PromoCrad: View , Hashable {
     let text: String
     let actionText: String
     var body: some View {
@@ -31,6 +31,7 @@ struct PromoCrad: View {
             Text(text)
                 .font(.subheadline)
                 .fontWeight(.semibold)
+                .minimumScaleFactor(0.7)
             
             Spacer()
             HStack(spacing: 4) {
