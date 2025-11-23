@@ -27,7 +27,6 @@ struct FoodScreen: View {
                         .background(Color.white)
                 }
             }
-            
             .padding(.leading)
             .toolbar{
                 ToolbarItem(placement: .topBarLeading) {
@@ -63,6 +62,7 @@ struct FoodScreen: View {
                 let restaurantDetailsVM = RestaurantDetailViewModel(restaurant: restaurant, MenuItems: viewModel.restaurantsMenuItems[restaurant.restaurantID] ?? [], restaurantImage: viewModel.restaurantImages[restaurant.restaurantID] ?? Image("restaurantImagePH"))
                 RestaurantDetailView(viewModel: restaurantDetailsVM)
             }
+          
         }
         
     }

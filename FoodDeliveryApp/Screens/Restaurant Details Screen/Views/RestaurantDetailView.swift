@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RestaurantDetailView: View {
-    var viewModel:RestaurantDetailViewModel
+    @Bindable var viewModel:RestaurantDetailViewModel
     @Environment(\.dismiss) var dismiss
     var body: some View {
             ScrollView {
@@ -34,6 +34,9 @@ struct RestaurantDetailView: View {
                     PicksForYouView(viewModel: viewModel)
                     ForEach(viewModel.menuItems,id: \.itemID){ item in
                         MenuItemCell(item: item)
+                        .onTapGesture {
+                            viewModel.selectedMenuItem = item
+                        }
                     }
                 }
                 .redacted(reason: viewModel.isDataloading ? .placeholder : [])
@@ -49,7 +52,6 @@ struct RestaurantDetailView: View {
                     }
                         .padding(.vertical,10)
                 }
-                
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack(spacing: 0){
@@ -73,7 +75,12 @@ struct RestaurantDetailView: View {
                     
                     .padding(.vertical,10)
                 }
+                
             }
+            .sheet(item: $viewModel.selectedMenuItem){ item in
+                ItemDetailsView(orderNote: "")
+            }
+            
         
         
         

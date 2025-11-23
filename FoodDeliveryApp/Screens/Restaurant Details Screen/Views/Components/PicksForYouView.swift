@@ -15,11 +15,14 @@ struct PicksForYouView: View {
             .padding(.horizontal)
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(),spacing: 10) ,count: 2)) {
                 ForEach(0..<6) { i in
-                    if i < viewModel.menuItems.count{
-                         PicksFuItemCard(item: viewModel.menuItems[i])
+                    if (!viewModel.menuItems.isEmpty ){
+                         PicksFuItemCard(item: viewModel.menuItems[i%3])
                             .padding(.bottom,8)
+                            .onTapGesture {
+                                viewModel.selectedMenuItem = viewModel.menuItems[i%3]
+                            }
                     }else{
-                        PicksFuItemCard(item: viewModel.menuItems[i-viewModel.menuItems.count])
+                        PicksFuItemCard(item: MenuItem(itemID: 1, itemName: "Placeholder", itemDescription: "Placeholder", itemPrice: 100, restaurantID: 1, imageUrl: "restaurantImagePH"))
                            .padding(.bottom,8)
                     }
                 }

@@ -13,6 +13,7 @@ class RestaurantDetailViewModel: ObservableObject {
     var menuItems: [MenuItem] = []
     var restaurantImage:Image?
     var selectedMenuTab = "Order again"
+    var selectedMenuItem:MenuItem?
     var isDataloading:Bool{
         if menuItems.count >= 3{
             return false
