@@ -23,7 +23,7 @@ struct RestaurantDetailView: View {
                             .frame(height: 200)
                             .scaledToFit()
                     }
-                   
+                    
                     RestaurantInfoCard(viewModel: viewModel)
                     .padding(.horizontal)
                     .offset(y: -20)

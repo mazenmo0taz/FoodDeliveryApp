@@ -8,17 +8,21 @@
 import Foundation
 import SwiftUI
 @Observable
-class RestaurantsViewModel:Identifiable{
+final class RestaurantsViewModel:Identifiable{
     var isDataLoading:Bool = true
     var isImagesLoading:Bool = true 
     var apiRestaurants:[APIRestaurantData] = []
     var restaurants:[Restaurant] = []
     var restaurantsImageString:[Int:String] = [:]
     var restaurantImages:[Int:Image] = [:]
-    var RestaurantsMenuItems: [Int : [MenuItem]] = [:]
+    var restaurantsMenuItems: [Int : [MenuItem]] = [:]
+    var service:NetworkApi
+    init(service: NetworkApi){
+        self.service = service
+    }
     func getRestaurants() async {
         do{
-            apiRestaurants = try await BaseApi.shared.get(from: "https://fakerestaurantapi.runasp.net/api/restaurant")
+            apiRestaurants = try await service.get(from: .restaurants)
             restaurants = apiRestaurants.map { api in
                 Restaurant(
                     restaurantID: api.id,
@@ -29,16 +33,15 @@ class RestaurantsViewModel:Identifiable{
                     deliveryFee: Int.random(in: 20...80),
                     haveDiscount: Bool.random(),
                     isFavorite: false,
-                    
                 )
             }
             isDataLoading = false
             
             for restaurant in apiRestaurants {
-                
                 await getRestaurantsMenu(for: restaurant.id)
                 if let imageUrl = restaurantsImageString[restaurant.id]{
                     await loadRestaurantImage(from: imageUrl, for: restaurant.id)
+                    print(imageUrl)
                 }
             }
             isImagesLoading = false
@@ -50,8 +53,8 @@ class RestaurantsViewModel:Identifiable{
     
     func getRestaurantsMenu(for id:Int) async{
         do{
-            RestaurantsMenuItems[id] = try await BaseApi.shared.get(from: "https://fakerestaurantapi.runasp.net/api/restaurant/\(id)/menu")
-            restaurantsImageString[id] = RestaurantsMenuItems[id]?.first?.imageUrl
+            restaurantsMenuItems[id] = try await service.get(from: .menu(restaurantID: id))
+            restaurantsImageString[id] = restaurantsMenuItems[id]?.first?.imageUrl
             
         }catch{
             print(error.localizedDescription)
@@ -60,9 +63,8 @@ class RestaurantsViewModel:Identifiable{
     
     func loadRestaurantImage(from url: String,for id:Int) async {
         do {
-            let image = try await BaseApi.shared.downloadImage(from: url)
+            let image = try await service.downloadImage(from: url)
             restaurantImages[id] = image
-            
         } catch {
             print("Image download failed: \(error)")
         }

@@ -16,11 +16,29 @@ enum NetworkError: Error {
     case downloadError
 }
 
-struct BaseApi {
+enum Endpoint {
+    case restaurants
+    case menu(restaurantID:Int)
+    var urlString: String {
+        switch self {
+        case .restaurants:
+            return APIconstants.baseURL
+        case .menu(restaurantID: let id):
+            return APIconstants.baseURL + "/\(id)/menu"
+        }
+    }
+}
+
+protocol NetworkApi {
+    func get<T:Codable>(from endoint: Endpoint) async throws -> T
+    func downloadImage(from urlString: String) async throws -> Image?
+}
+
+struct BaseApi:NetworkApi {
    static let shared = BaseApi()
-    func get<T: Decodable>(from urlString: String) async throws -> T {
+    func get<T: Codable>(from endpoint: Endpoint) async throws -> T {
         
-        guard let url = URL(string: urlString) else{
+        guard let url = URL(string: endpoint.urlString) else{
            throw NetworkError.invalidURL
         }
         let (data,response) = try await URLSession.shared.data(from: url)

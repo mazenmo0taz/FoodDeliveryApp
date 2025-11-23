@@ -6,8 +6,7 @@
 //
 
 import Foundation
-struct Restaurant:Decodable,Hashable{
-//    var id = UUID()
+struct Restaurant:Codable,Hashable{
     var restaurantID: Int
     var name: String
     var image: String
@@ -18,7 +17,7 @@ struct Restaurant:Decodable,Hashable{
     var isFavorite: Bool
 }
 
-struct APIRestaurantData:Decodable {
+struct APIRestaurantData:Codable {
     var id: Int
     var name: String
     enum CodingKeys: String, CodingKey {

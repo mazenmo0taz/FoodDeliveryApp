@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FoodScreen: View {
-    @State private var viewModel = RestaurantsViewModel()
+    @State private var viewModel = RestaurantsViewModel(service: BaseApi())
     @State private var searchText: String = ""
     var body: some View {
         NavigationStack {
@@ -60,7 +60,7 @@ struct FoodScreen: View {
                 await viewModel.getRestaurants()
             }
             .navigationDestination(for: Restaurant.self){ (restaurant) in
-                let restaurantDetailsVM = RestaurantDetailViewModel(restaurant: restaurant, MenuItems: viewModel.RestaurantsMenuItems[restaurant.restaurantID] ?? [], restaurantImage: viewModel.restaurantImages[restaurant.restaurantID] ?? Image("restaurantImagePH"))
+                let restaurantDetailsVM = RestaurantDetailViewModel(restaurant: restaurant, MenuItems: viewModel.restaurantsMenuItems[restaurant.restaurantID] ?? [], restaurantImage: viewModel.restaurantImages[restaurant.restaurantID] ?? Image("restaurantImagePH"))
                 RestaurantDetailView(viewModel: restaurantDetailsVM)
             }
         }

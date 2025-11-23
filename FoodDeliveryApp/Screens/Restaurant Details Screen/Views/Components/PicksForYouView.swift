@@ -19,7 +19,7 @@ struct PicksForYouView: View {
                          PicksFuItemCard(item: viewModel.menuItems[i])
                             .padding(.bottom,8)
                     }else{
-                        PicksFuItemCard(item: viewModel.menuItems[i-3])
+                        PicksFuItemCard(item: viewModel.menuItems[i-viewModel.menuItems.count])
                            .padding(.bottom,8)
                     }
                 }
@@ -50,9 +50,9 @@ struct PicksFuItemCard: View {
                 .lineLimit(2)
             
             
-                Text("EGP \(item.itemPrice, specifier: "%.2f")")
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
+            Text("EGP \(item.itemPrice)")
+                .font(.subheadline)
+                .fontWeight(.semibold)
             
         }
         .frame(width: 160)
