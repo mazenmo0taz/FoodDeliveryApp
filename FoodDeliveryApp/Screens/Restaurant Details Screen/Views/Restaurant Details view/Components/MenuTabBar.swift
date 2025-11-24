@@ -17,16 +17,14 @@ struct MenuTabBar: View {
                 ForEach(tabs, id: \.self) { tab in
                     VStack(spacing: 15) {
                         Text(tab)
-                            .font(.subheadline)
-                            .fontWeight(.bold)
-                            .foregroundColor(viewModel.selectedMenuTab == tab ? .primary : .secondary)
-                           
+                        .font(.subheadline)
+                        .fontWeight(.bold)
+                        .foregroundColor(viewModel.selectedMenuTab == tab ? .primary : .secondary)
                         
-                            Rectangle()
-                                .fill(viewModel.selectedMenuTab == tab ? Color.primary : .clear)
-                                .frame(height: 2)
-                                .background(viewModel.selectedMenuTab == tab ? Color.primary : .clear)
-                        
+                        Rectangle()
+                        .fill(viewModel.selectedMenuTab == tab ? Color.primary : .clear)
+                        .frame(height: 2)
+                        .background(viewModel.selectedMenuTab == tab ? Color.primary : .clear)
                     }
                     .padding(.horizontal)
                     .onTapGesture {
@@ -38,9 +36,8 @@ struct MenuTabBar: View {
                 Rectangle()
                     .fill(.tertiary)
                     .frame(height: 2)
-                    
             }
-         
+            
         }
     }
 }

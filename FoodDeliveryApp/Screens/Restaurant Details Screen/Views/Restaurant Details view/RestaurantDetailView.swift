@@ -78,9 +78,10 @@ struct RestaurantDetailView: View {
                 
             }
             .sheet(item: $viewModel.selectedMenuItem){ item in
-                ItemDetailsView(orderNote: "")
+                ItemDetailsView(viewModel: ItemDetailsViewModel(item: item))
+                    .presentationDetents([.height(530)])
             }
-            
+           
         
         
         
@@ -90,6 +91,7 @@ struct RestaurantDetailView: View {
 
 #Preview {
     RestaurantDetailView(viewModel: RestaurantDetailViewModel())
+        .environment(CartViewModel())
 }
 
 

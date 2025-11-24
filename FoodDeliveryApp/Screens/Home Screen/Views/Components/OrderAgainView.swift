@@ -19,26 +19,26 @@ struct OrderAgainView: View {
                     ForEach(0..<8){ i in
                         if viewModel.isImagesLoading{
                             ProgressView()
-                                .frame(width: 100)
+                            .frame(width: 100)
                         }else if !promoImages.isEmpty && i < promoImages.count {
                             ZStack(alignment: .bottom){
                                 promoImages[i]
-                                    .resizable()
-                                    .frame(width: 100)
-                                    .aspectRatio(contentMode: .fit)
-                                    .background(.gray)
-                                    .cornerRadius(10)
+                                .resizable()
+                                .frame(width: 100)
+                                .aspectRatio(contentMode: .fit)
+                                .background(.gray)
+                                .cornerRadius(10)
                                 
                                 Text(viewModel.restaurants[i+1].name)
-                                    .foregroundColor(.white)
-                                    .padding(8)
-                                    .shadow(radius: 5)
-                                    .background(.black.opacity(0.5))
-                                    .font(.caption2)
-                                    .bold()
-                                    .lineLimit(1)
-                                    .minimumScaleFactor(0.8)
-                                    .clipShape(Capsule())
+                                .foregroundColor(.white)
+                                .padding(8)
+                                .shadow(radius: 5)
+                                .background(.black.opacity(0.5))
+                                .font(.caption2)
+                                .bold()
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.8)
+                                .clipShape(Capsule())
                             }
                             .frame(width: 100)
                         }
@@ -60,4 +60,4 @@ struct OrderAgainView: View {
     }
 }
 
-    
+

@@ -20,7 +20,7 @@ struct FoodScreen: View {
                     CategoriesView()
                     Section {
                         RestaurantsListView(viewModel: viewModel)
-                            }
+                    }
                      header: {
                         FiltersView()
                     }.padding(.vertical,10)

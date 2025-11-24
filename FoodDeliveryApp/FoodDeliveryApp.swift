@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct FoodDeliveryApp: App {
+    @State private var cartViewModel: CartViewModel = CartViewModel()
     var body: some Scene {
         WindowGroup {
             FoodScreen()
+                .environment(cartViewModel)
         }
     }
 }

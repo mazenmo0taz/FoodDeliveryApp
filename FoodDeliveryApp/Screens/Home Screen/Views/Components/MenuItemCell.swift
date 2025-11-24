@@ -13,7 +13,6 @@ struct MenuItemCell: View {
     var body: some View {
         HStack(alignment: .top, spacing: 16) {
             VStack(alignment: .leading, spacing: 6) {
-
                 Text(item.itemName)
                     .font(.system(size: 17, weight: .semibold))
                     .foregroundColor(.black)
