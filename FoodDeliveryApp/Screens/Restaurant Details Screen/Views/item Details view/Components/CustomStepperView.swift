@@ -7,29 +7,37 @@
 
 import SwiftUI
 struct CustomStepperView: View {
-    @Binding var itemCount: Int
+    @Environment(CartViewModel.self) var cartViewModel
+    var cartItemID:Int
     var min = 1
     var max = 10
+    var quantity: Int 
     var minusBtnImageString = "minus"
     var minusBtnColorAtmin = Color.gray
     var minusBtnColor = Color.orange
+    var onMinus: () -> Void
+    var onPlus: () -> Void
     var body: some View {
+       
         HStack {
             Button{
-                if itemCount > min { itemCount -= 1 }
+                onMinus()
+                
+               // cartViewModel.removeFromCart(itemId: cartItemID)
             }label: {
                 Image(systemName: minusBtnImageString)
-                    .foregroundColor(itemCount == min ? minusBtnColorAtmin : minusBtnColor)
+                    .foregroundColor( quantity == min ? minusBtnColorAtmin : minusBtnColor)
                     .font(.title3)
                     .bold()
             }
-            Text("\(itemCount)")
+            Text("\(quantity)")
                 .bold()
                 .foregroundColor(.black)
                 .padding()
             
             Button{
-                if itemCount < max { itemCount += 1 }
+                onPlus()
+                // cartViewModel.incrementItemQuantity(itemId: cartItemID)
             }label: {
                 Image(systemName: "plus")
                 .font(.title3)

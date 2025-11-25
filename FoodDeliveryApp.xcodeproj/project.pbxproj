@@ -21,6 +21,8 @@
 		BA4DBB4C2ED4090800E0CAFB /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4DBB4B2ED4090300E0CAFB /* CartItem.swift */; };
 		BA4DBB4F2ED4136B00E0CAFB /* CustomStepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4DBB4E2ED4136B00E0CAFB /* CustomStepperView.swift */; };
 		BA4DBB512ED41E2800E0CAFB /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4DBB502ED41E2800E0CAFB /* CartItemCell.swift */; };
+		BA59D6762ED58CED00154E6A /* ViewCartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA59D6752ED58CED00154E6A /* ViewCartButton.swift */; };
+		BA59D6782ED596B600154E6A /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA59D6772ED596B600154E6A /* EmptyStateView.swift */; };
 		BAB679832ED2A6C5001D7BE4 /* APIconstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB679822ED2A6B3001D7BE4 /* APIconstants.swift */; };
 		BAB679852ED2B13A001D7BE4 /* ItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB679842ED2B13A001D7BE4 /* ItemDetailsView.swift */; };
 		BAFC71792ECABAD500D03760 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAFC716F2ECABAD500D03760 /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 		BA4DBB4B2ED4090300E0CAFB /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		BA4DBB4E2ED4136B00E0CAFB /* CustomStepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepperView.swift; sourceTree = "<group>"; };
 		BA4DBB502ED41E2800E0CAFB /* CartItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemCell.swift; sourceTree = "<group>"; };
+		BA59D6752ED58CED00154E6A /* ViewCartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCartButton.swift; sourceTree = "<group>"; };
+		BA59D6772ED596B600154E6A /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		BAB679822ED2A6B3001D7BE4 /* APIconstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIconstants.swift; sourceTree = "<group>"; };
 		BAB679842ED2B13A001D7BE4 /* ItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsView.swift; sourceTree = "<group>"; };
 		BAE9F5162EC94ABE008A247C /* FoodDeliveryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodDeliveryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +105,7 @@
 				BA15C1902ECD7467001903C3 /* PromoBannersView.swift */,
 				BA15C1942ECD8A20001903C3 /* MenuTabBar.swift */,
 				BA15C1922ECD8326001903C3 /* PicksForYouView.swift */,
+				BA59D6752ED58CED00154E6A /* ViewCartButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				BA4DBB502ED41E2800E0CAFB /* CartItemCell.swift */,
+				BA59D6772ED596B600154E6A /* EmptyStateView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -394,6 +400,7 @@
 				BAFC71812ECABAD500D03760 /* FoodScreen.swift in Sources */,
 				BAFC71822ECABAD500D03760 /* CartScreen.swift in Sources */,
 				BA15C1972ECD9535001903C3 /* RestaurantInfoCard.swift in Sources */,
+				BA59D6782ED596B600154E6A /* EmptyStateView.swift in Sources */,
 				BAFC71842ECABAD500D03760 /* FoodDeliveryApp.swift in Sources */,
 				BA15C1952ECD8A20001903C3 /* MenuTabBar.swift in Sources */,
 				BA15C18E2ECD6587001903C3 /* ImageCache.swift in Sources */,
@@ -407,6 +414,7 @@
 				BAFC71882ECABAD500D03760 /* RestaurantModel.swift in Sources */,
 				BA4DBB4A2ED4085500E0CAFB /* CartViewModel.swift in Sources */,
 				BAFC71892ECABAD500D03760 /* RestaurantsViewModel.swift in Sources */,
+				BA59D6762ED58CED00154E6A /* ViewCartButton.swift in Sources */,
 				BA15C1992ECD9642001903C3 /* MenuItemCell.swift in Sources */,
 				BA4DBB432ED3DB3E00E0CAFB /* ItemDetailsViewModel.swift in Sources */,
 				BAB679832ED2A6C5001D7BE4 /* APIconstants.swift in Sources */,

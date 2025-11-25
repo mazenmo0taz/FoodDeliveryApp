@@ -11,29 +11,31 @@ struct CartScreen: View {
 @Environment(CartViewModel.self) var cartViewModel
 
     var body: some View {
-        VStack(spacing: 0) {
-            CartHeaderView()
-            CartItemsView()
-            SpecialRequestView()
-            VoucherView()
-
-            PaymentSummaryView()
-            
-            Spacer()
-            BottomButtons()
+        ZStack{
+            ScrollView(showsIndicators: false){
+                LazyVStack(spacing: 0) {
+                    //CartHeaderView()
+                    CartItemsView(items: cartViewModel.items)
+                    SpecialRequestView()
+                    VoucherView()
+                    
+                    PaymentSummaryView()
+                    
+                    Spacer()
+                    BottomButtons()
+                }
+                .padding()
+            }
+            if cartViewModel.items.isEmpty {
+                EmptyStateView()
+            }
         }
-        .padding()
-//        .sheet(isPresented: ){
-//            NotesView(viewModel: viewModel )
-//            .frame(height: 140)
-//            .padding(.bottom)
-//        }
     }
 }
 
 #Preview {
     CartScreen()
-        .environment(CartViewModel())
+        .environment(CartViewModel(RestaurantDeliveryFee: 0))
 }
 
 struct CartHeaderView: View {
@@ -52,15 +54,14 @@ struct CartHeaderView: View {
 }
 
 struct CartItemsView: View {
+    var items: [CartItem]
     var body: some View {
         VStack(spacing: 16) {
-            CartItemCell(
-                name: "V7",
-                image: "can",
-                price: "EGP 27.12",
-                original: "EGP 31.90"
-            )
-            Divider()
+            ForEach(items){ item in
+                CartItemCell(cartItem: item)
+                Divider()
+            }
+           
         }.padding(.vertical)
     }
 }
@@ -138,23 +139,24 @@ struct VoucherView: View {
 }
 
 struct PaymentSummaryView: View {
+    @Environment(CartViewModel.self) var cartViewModel
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Payment summary").font(.headline)
             HStack {
-                Text("Subtotal")
+                Text("subtotal")
                 Spacer()
-                Text("EGP 43.30")
+                Text("\(cartViewModel.total)")
             }
             HStack {
                 Text("Delivery fee")
                 Spacer()
-                Text("EGP 65.00")
+                Text("\(cartViewModel.RestaurantDeliveryFee)")
             }
             HStack {
                 Text("Total amount").fontWeight(.bold)
                 Spacer()
-                Text("EGP 109.80").fontWeight(.bold)
+                Text("\(cartViewModel.RestaurantDeliveryFee + cartViewModel.total)").fontWeight(.bold)
             }
         }
         .padding(.vertical)

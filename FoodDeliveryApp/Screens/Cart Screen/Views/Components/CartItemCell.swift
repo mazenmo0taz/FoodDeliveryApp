@@ -9,16 +9,13 @@ import Foundation
 import SwiftUI
 struct CartItemCell: View {
     @Environment(CartViewModel.self) var cartViewModel
-    let name: String
-    let image: String
-    let price: String
-    let original: String
+    var cartItem:CartItem
     @State private var quantity = 1
 
     var body: some View {
         HStack {
             VStack(alignment: .leading,spacing: 10) {
-                Text(name)
+                Text(cartItem.item.itemName)
                 .font(.title3)
                 .bold()
                 
@@ -32,7 +29,7 @@ struct CartItemCell: View {
                 .foregroundStyle(.orange)
     
                 Spacer()
-                Text(price)
+                Text("EGP \(cartItem.item.itemPrice)")
                     .font(.title3)
                 .bold()
             }
@@ -40,11 +37,14 @@ struct CartItemCell: View {
             Spacer()
             
             ZStack(alignment: .bottom){
-                Image("restaurantImagePH")
-                    .resizable()
+                RemoteImageView(url: cartItem.item.imageUrl)
                     .frame(maxWidth: 150, maxHeight: .infinity)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
-                CustomStepperView(itemCount: $quantity,minusBtnImageString: quantity == 1 ? "trash" : "minus",minusBtnColorAtmin: .orange)
+                CustomStepperView(cartItemID: cartItem.id,quantity: cartItem.quantity,minusBtnImageString: quantity == 1 ? "trash" : "minus",minusBtnColorAtmin: .orange){
+                    cartViewModel.removeFromCart(itemId: cartItem.id)
+                } onPlus: {
+                    cartViewModel.incrementItemQuantity(itemId: cartItem.id)
+                }
                     .padding(.bottom,10)
             }
             

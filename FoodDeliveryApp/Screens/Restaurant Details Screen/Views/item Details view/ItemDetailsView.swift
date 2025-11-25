@@ -62,7 +62,7 @@ struct ItemDetailsView: View {
 
 #Preview {
     ItemDetailsView(viewModel: ItemDetailsViewModel(item: MenuItem(itemID: 1, itemName: "ddddd", itemDescription: "ssss", itemPrice: 2222, restaurantID: 2, imageUrl: "")))
-        .environment(CartViewModel())
+        .environment(CartViewModel(RestaurantDeliveryFee: 0))
 }
 
 struct NotesButtonLabelView: View {

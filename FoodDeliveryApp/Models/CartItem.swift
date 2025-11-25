@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct CartItem: Identifiable {
-    var id = UUID()
+    var id:Int
     var item: MenuItem
     var note: String?
     var quantity: Int

@@ -11,9 +11,18 @@ import SwiftUI
 class CartViewModel {
     var cartNote: String = "Anything else we need to know?"
     var items: [CartItem] = []
+    var RestaurantDeliveryFee: Int
+    init (RestaurantDeliveryFee: Int) {
+        self.RestaurantDeliveryFee = RestaurantDeliveryFee
+    }
+    func addToCart(itemId:Int, item: MenuItem, quantity: Int, note: String?) {
+        items.append(CartItem(id: itemId, item: item, note: note,quantity:quantity))
+    }
     
-    func addToCart(item: MenuItem, quantity: Int, note: String?) {
-            items.append(CartItem(item: item, note: note,quantity:quantity))
+    func incrementItemQuantity(itemId: Int) {
+        if let index = items.firstIndex(where: { $0.item.id == itemId }){
+            items[index].quantity += 1
+        }
     }
     
     func removeFromCart(itemId: Int) {
@@ -29,6 +38,14 @@ class CartViewModel {
         return items[index].quantity
     }
     var count: Int {
-        items.count
+        items.reduce(0) { result, item in
+            result + item.quantity
+        }
+    }
+    
+    var total: Int {
+        items.reduce(0) { result, item in
+            result + (item.item.itemPrice * item.quantity)
+        }
     }
 }

@@ -8,7 +8,15 @@
 import SwiftUI
 struct OrderAgainView: View {
     var viewModel:RestaurantsViewModel
-    @State var promoImages:[Image] = []
+    var promoImages:[Image]{
+        let images = Array(viewModel.restaurantImages.values)
+        if images.isEmpty{
+            return Array(repeating:Image("restaurantPlaceholderPH"), count:8)
+        }else {
+            return (0..<8).map { _ in images.randomElement() ?? Image("restaurantPlaceholderPH")}
+        }
+    }
+
     var body: some View {
         VStack(alignment:.leading){
             Text("Order again")
@@ -48,15 +56,6 @@ struct OrderAgainView: View {
             .frame(height:100)
         }
         .padding(.vertical,30)
-        .onAppear {
-            if !viewModel.isImagesLoading && promoImages.isEmpty {
-                let images = Array(viewModel.restaurantImages.values)
-                promoImages = (0..<8).map { _ in
-                    images.randomElement() ?? Image("restaurantImagePH")
-                }
-            }
-        }
-        
     }
 }
 
