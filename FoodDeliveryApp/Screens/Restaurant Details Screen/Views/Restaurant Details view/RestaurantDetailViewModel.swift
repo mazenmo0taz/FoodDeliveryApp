@@ -13,11 +13,12 @@ class RestaurantDetailViewModel: ObservableObject {
     var menuItems: [MenuItem] = []
     var restaurantImage:Image?
     var selectedMenuTab = "Order again"
+    var selectedMenuItem:MenuItem?
     var isDataloading:Bool{
-        if menuItems.count > 3{
-            return true
-        }else{
+        if menuItems.count >= 3{
             return false
+        }else{
+            return true
         }
     }
     let promosArray = [
@@ -31,11 +32,12 @@ class RestaurantDetailViewModel: ObservableObject {
                    actionText: "Redeem")
     ]
     
-    init() {
+    init(){
         loadMockData()
     }
     
     init(restaurant: Restaurant,MenuItems: [MenuItem],restaurantImage:Image) {
+        loadMockData()
         self.restaurant = restaurant
         self.menuItems = MenuItems
         self.restaurantImage = restaurantImage
@@ -44,10 +46,10 @@ class RestaurantDetailViewModel: ObservableObject {
     func loadMockData() {
         restaurant = Restaurant(restaurantID: 12, name: "PlaceHolder", image: "", rating: 4,timeToDeliver: 22, deliveryFee: 30, haveDiscount: true, isFavorite: false)
         menuItems = [
-            MenuItem(itemID: 1, itemName: "Pizza Margherita", itemDescription: "Fresh mozzarella, tomatoes, and basil leaves.", itemPrice: 40, restaurantID: 1, imageUrl: ""),
-            MenuItem(itemID: 2, itemName: "Pizza Margherita", itemDescription: "Fresh mozzarella, tomatoes, and basil leaves.", itemPrice: 40, restaurantID: 2, imageUrl: ""),
+            MenuItem(itemID: 1, itemName: "Pizza Margherita", itemDescription: "Fresh mozzarella, tomatoes, and basil leaves.", itemPrice: 40, restaurantID: 12, imageUrl: ""),
+            MenuItem(itemID: 2, itemName: "Pizza Margherita", itemDescription: "Fresh mozzarella, tomatoes, and basil leaves.", itemPrice: 40, restaurantID: 12, imageUrl: ""),
             MenuItem(itemID: 3, itemName: "Pizza Margherita", itemDescription: "Fresh mozzarella, tomatoes, and basil leaves.", itemPrice: 40, restaurantID: 3, imageUrl: ""),
-            MenuItem(itemID: 3, itemName: "Pizza Margherita", itemDescription: "Fresh mozzarella, tomatoes, and basil leaves.", itemPrice: 40, restaurantID: 3, imageUrl: ""),
+            MenuItem(itemID: 3, itemName: "Pizza Margherita", itemDescription: "Fresh mozzarella, tomatoes, and basil leaves.", itemPrice: 40, restaurantID: 12, imageUrl: ""),
         
         ]
     }

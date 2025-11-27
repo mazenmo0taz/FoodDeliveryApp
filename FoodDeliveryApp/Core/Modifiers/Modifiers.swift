@@ -6,23 +6,29 @@
 //
 import SwiftUI
 struct CapsuleShapeModifier: ViewModifier {
-    var color: Color
+    var color: Color = .white
+    var height: CGFloat = 45
     func body(content: Content) -> some View {
         content
             .padding()
-            .frame(height: 45)
+            .frame(height: height)
             .background(color)
             .clipShape(Capsule())
     }
 }
+
 struct StrokeLineModifier: ViewModifier {
     var lineWidth: CGFloat = 1
+    var color: Color = .clear
     func body(content: Content) -> some View {
         content
             .overlay {
                 Capsule()
-                    .stroke(.tertiary, lineWidth: lineWidth)
+                .stroke(.tertiary, lineWidth: lineWidth)
+                
+                
             }
-    
+            .background(color)
+            .clipShape(Capsule())
     }
 }

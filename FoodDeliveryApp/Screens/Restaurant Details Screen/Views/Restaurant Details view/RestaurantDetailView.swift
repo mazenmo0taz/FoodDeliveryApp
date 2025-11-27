@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct RestaurantDetailView: View {
-    var viewModel:RestaurantDetailViewModel
+    @Bindable var viewModel:RestaurantDetailViewModel
+    @Environment(CartViewModel.self) var cartViewModel
     @Environment(\.dismiss) var dismiss
+    
     var body: some View {
+        ZStack(alignment: .bottom){
+            
             ScrollView {
                 LazyVStack{
                     if viewModel.menuItems.indices.contains(1){
@@ -23,10 +27,10 @@ struct RestaurantDetailView: View {
                             .frame(height: 200)
                             .scaledToFit()
                     }
-                   
+                    
                     RestaurantInfoCard(viewModel: viewModel)
-                    .padding(.horizontal)
-                    .offset(y: -20)
+                        .padding(.horizontal)
+                        .offset(y: -20)
                     
                     PromoBannersView(viewModel: viewModel)
                     MenuTabBar(viewModel: viewModel)
@@ -34,10 +38,26 @@ struct RestaurantDetailView: View {
                     PicksForYouView(viewModel: viewModel)
                     ForEach(viewModel.menuItems,id: \.itemID){ item in
                         MenuItemCell(item: item)
+                            .onTapGesture {
+                                viewModel.selectedMenuItem = item
+                            }
                     }
                 }
                 .redacted(reason: viewModel.isDataloading ? .placeholder : [])
             }
+            
+            if cartViewModel.items.count > 0{
+                NavigationLink{
+                    CartScreen()
+                        .navigationTitle("Cart")
+                        .toolbarRole(.editor)
+                        //.navigationBarTitleDisplayMode(.inline)
+                }label: {
+                    ViewCartButton()
+                }
+            }
+        
+    }
             .navigationBarBackButtonHidden(true)
             .ignoresSafeArea(edges: .top)
             .toolbar{
@@ -50,13 +70,12 @@ struct RestaurantDetailView: View {
                         .padding(.vertical,10)
                 }
                 
-                
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack(spacing: 0){
                         Button{
-                            print("open favs restaurant")
+                            viewModel.restaurant?.isFavorite.toggle()
                         }label: {
-                            ToolBarButtonLabel(imageName:"heart")
+                            ToolBarButtonLabel(imageName:viewModel.restaurant!.isFavorite ? "heart.fill":"heart")
                         }
                         
                         Button{
@@ -73,16 +92,22 @@ struct RestaurantDetailView: View {
                     
                     .padding(.vertical,10)
                 }
+                
             }
-        
-        
-        
+            .sheet(item: $viewModel.selectedMenuItem){ item in
+                ItemDetailsView(viewModel: ItemDetailsViewModel(item: item))
+                    .presentationDetents([.height(530)])
+            }
+            .onAppear{
+                cartViewModel.RestaurantDeliveryFee = viewModel.restaurant?.deliveryFee ?? 0
+            }
         
     }
 }
 
 #Preview {
     RestaurantDetailView(viewModel: RestaurantDetailViewModel())
+        .environment(CartViewModel(RestaurantDeliveryFee: 0))
 }
 
 
