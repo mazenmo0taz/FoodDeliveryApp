@@ -19,15 +19,15 @@ struct ItemDetailsView: View{
                 .clipped()
                 
                 VStack(alignment:.leading,spacing:10) {
-                    Text("Item Name")
+                    Text(viewModel.item.itemName)
                     .font(.title)
                     .fontWeight(.semibold)
                     
-                    Text("Item Description")
+                    Text(viewModel.item.itemDescription)
                     .fontWeight(.semibold)
                     .bold()
                     .foregroundStyle(.secondary)
-                
+                    .frame(height: 70)
                     Button{
                         viewModel.OrderNoteIsPresent = true
                     }label: {
@@ -54,7 +54,7 @@ struct ItemDetailsView: View{
             }
             
         }
-        .frame(maxHeight: 530)
+        .frame(maxHeight: 570)
         
     }
     

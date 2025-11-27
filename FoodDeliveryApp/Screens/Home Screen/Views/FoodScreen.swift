@@ -61,8 +61,10 @@ struct FoodScreen: View {
                     
                                 NavigationLink{
                                     CartScreen()
+                                        
                                 }label: {
                                     ToolBarButtonLabel(imageName:"bag.fill")
+                                        .badge(cartViewModel.count)
                                 }
                             
                         }
@@ -70,6 +72,7 @@ struct FoodScreen: View {
                     }
                     .padding(.vertical,10)
                 }
+            
             }
             .task {
                 await viewModel.getRestaurants()
