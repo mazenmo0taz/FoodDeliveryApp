@@ -26,6 +26,12 @@ struct APIRestaurantData:Codable {
     }
 }
 
+extension Restaurant:Identifiable {
+    var id: Int{
+        restaurantID
+    }
+}
+
 struct RestaurantMockData {
     static let restaurants = [
         Restaurant(restaurantID: 1, name: "Placeholder", image: "restaurantImagePH", rating: 4, timeToDeliver: 30, deliveryFee: 50, haveDiscount: true, isFavorite: false),

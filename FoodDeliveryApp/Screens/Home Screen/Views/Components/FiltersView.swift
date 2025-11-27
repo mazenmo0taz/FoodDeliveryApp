@@ -6,9 +6,19 @@
 //
 
 import SwiftUI
-
+enum Filters:String,CaseIterable,Identifiable{
+    var id:Self{
+        self
+    }
+    case Pickup = "Pickup"
+    case offers = "Offers"
+    case ratingAbove3 = "Rating 3.0+"
+    case deliveryUnder50 = "Under 50 mins"
+    case newlyAdded = "Newly Added"
+}
 
 struct FiltersView: View {
+    var viewModel:RestaurantsViewModel
     var body: some View {
         ScrollView(.horizontal){
             LazyHStack(spacing:12) {
@@ -22,19 +32,20 @@ struct FiltersView: View {
                             .bold()
                         Image(systemName: "arrow.down")
                     }
-                
                 }
                 .modifier(CapsuleShapeModifier(color: .clear))
                 .modifier(StrokeLineModifier())
                 
-                ForEach(0..<5){_ in
-                    Text("Filter")
+                ForEach(Filters.allCases){ filter in
+                    Text(filter.rawValue)
                         .font(.body)
                         .bold()
-                       
                         .modifier(CapsuleShapeModifier(color: .clear))
                         .frame(maxWidth: 200)
                         .modifier(StrokeLineModifier())
+                        .onTapGesture {
+                            viewModel.applyFilters(filter: filter, searchText: nil)
+                        }
                 }
             }
             .frame(maxHeight: 50)
@@ -43,5 +54,5 @@ struct FiltersView: View {
     }
 }
 #Preview {
-    FiltersView()
+    FiltersView(viewModel: RestaurantsViewModel(service: BaseApi()))
 }

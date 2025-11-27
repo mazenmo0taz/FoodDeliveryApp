@@ -73,9 +73,9 @@ struct RestaurantDetailView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack(spacing: 0){
                         Button{
-                            print("open favs restaurant")
+                            viewModel.restaurant?.isFavorite.toggle()
                         }label: {
-                            ToolBarButtonLabel(imageName:"heart")
+                            ToolBarButtonLabel(imageName:viewModel.restaurant!.isFavorite ? "heart.fill":"heart")
                         }
                         
                         Button{

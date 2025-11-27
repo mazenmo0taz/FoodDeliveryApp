@@ -13,10 +13,14 @@ final class RestaurantsViewModel:Identifiable{
     var isImagesLoading:Bool = true 
     var apiRestaurants:[APIRestaurantData] = []
     var restaurants:[Restaurant] = []
+    var filteredRestaurants:[Restaurant]{get{restaurants} set{}}
     var restaurantsImageString:[Int:String] = [:]
     var restaurantImages:[Int:Image] = [:]
     var restaurantsMenuItems: [Int : [MenuItem]] = [:]
     var service:NetworkApi
+    var favoriteRestaurants:[Restaurant]{
+        restaurants.filter({$0.isFavorite})
+    }
     init(service: NetworkApi){
         self.service = service
     }
@@ -41,7 +45,6 @@ final class RestaurantsViewModel:Identifiable{
                 await getRestaurantsMenu(for: restaurant.id)
                 if let imageUrl = restaurantsImageString[restaurant.id]{
                     await loadRestaurantImage(from: imageUrl, for: restaurant.id)
-                    print(imageUrl)
                 }
             }
             isImagesLoading = false
@@ -69,6 +72,30 @@ final class RestaurantsViewModel:Identifiable{
             print("Image download failed: \(error)")
         }
     }
+    
+    
+    func applyFilters(filter: Filters? = nil,searchText: String?) {
+            filteredRestaurants = restaurants.filter { restaurant in
+                var matchesFilter: Bool = true
+                switch filter {
+                case .Pickup:
+                     matchesFilter = filter == nil || true
+                case .newlyAdded:
+                     matchesFilter = filter == nil || true
+                case .offers:
+                     matchesFilter =  filter == nil || restaurant.haveDiscount
+                case .ratingAbove3:
+                    matchesFilter = filter == nil || restaurant.rating >= 3
+                case .deliveryUnder50:
+                    matchesFilter = filter == nil || restaurant.timeToDeliver <= 50
+                default:
+                    matchesFilter = true
+                }
+                let matchesSearch = searchText?.isEmpty ?? true || restaurant.name.localizedCaseInsensitiveContains(searchText!)
+                return matchesFilter && matchesSearch
+            }
+        }
+    
     
     let offerImageName: [String] = [
         "IMG_1713",

@@ -25,6 +25,15 @@
 		BA59D6782ED596B600154E6A /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA59D6772ED596B600154E6A /* EmptyStateView.swift */; };
 		BAB679832ED2A6C5001D7BE4 /* APIconstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB679822ED2A6B3001D7BE4 /* APIconstants.swift */; };
 		BAB679852ED2B13A001D7BE4 /* ItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB679842ED2B13A001D7BE4 /* ItemDetailsView.swift */; };
+		BADC72492ED7E8C200107CF8 /* FavoriteRestaurantsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC72482ED7E8C200107CF8 /* FavoriteRestaurantsScreen.swift */; };
+		BADC724C2ED7EB8500107CF8 /* AddTofavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC724B2ED7EB8500107CF8 /* AddTofavoriteButton.swift */; };
+		BADC724E2ED7ECAF00107CF8 /* RestaurantCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC724D2ED7ECAF00107CF8 /* RestaurantCellView.swift */; };
+		BADC72502ED7F64900107CF8 /* CircleSeparetor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC724F2ED7F64900107CF8 /* CircleSeparetor.swift */; };
+		BADC72522ED7FD3200107CF8 /* CartItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC72512ED7FD3200107CF8 /* CartItemsView.swift */; };
+		BADC72542ED806D600107CF8 /* AddNoteButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC72532ED806D600107CF8 /* AddNoteButtonLabel.swift */; };
+		BADC72562ED811B600107CF8 /* BottomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC72552ED811B600107CF8 /* BottomButtons.swift */; };
+		BADC72582ED811D700107CF8 /* PaymentSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC72572ED811D700107CF8 /* PaymentSummaryView.swift */; };
+		BADC725A2ED811F100107CF8 /* VoucherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC72592ED811F100107CF8 /* VoucherView.swift */; };
 		BAFC71792ECABAD500D03760 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAFC716F2ECABAD500D03760 /* Assets.xcassets */; };
 		BAFC717A2ECABAD500D03760 /* RestaurantsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFC71632ECABAD500D03760 /* RestaurantsListView.swift */; };
 		BAFC717B2ECABAD500D03760 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFC71642ECABAD500D03760 /* CategoriesView.swift */; };
@@ -65,6 +74,15 @@
 		BA59D6772ED596B600154E6A /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		BAB679822ED2A6B3001D7BE4 /* APIconstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIconstants.swift; sourceTree = "<group>"; };
 		BAB679842ED2B13A001D7BE4 /* ItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsView.swift; sourceTree = "<group>"; };
+		BADC72482ED7E8C200107CF8 /* FavoriteRestaurantsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRestaurantsScreen.swift; sourceTree = "<group>"; };
+		BADC724B2ED7EB8500107CF8 /* AddTofavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTofavoriteButton.swift; sourceTree = "<group>"; };
+		BADC724D2ED7ECAF00107CF8 /* RestaurantCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCellView.swift; sourceTree = "<group>"; };
+		BADC724F2ED7F64900107CF8 /* CircleSeparetor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleSeparetor.swift; sourceTree = "<group>"; };
+		BADC72512ED7FD3200107CF8 /* CartItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemsView.swift; sourceTree = "<group>"; };
+		BADC72532ED806D600107CF8 /* AddNoteButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteButtonLabel.swift; sourceTree = "<group>"; };
+		BADC72552ED811B600107CF8 /* BottomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtons.swift; sourceTree = "<group>"; };
+		BADC72572ED811D700107CF8 /* PaymentSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSummaryView.swift; sourceTree = "<group>"; };
+		BADC72592ED811F100107CF8 /* VoucherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherView.swift; sourceTree = "<group>"; };
 		BAE9F5162EC94ABE008A247C /* FoodDeliveryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodDeliveryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAFC71632ECABAD500D03760 /* RestaurantsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsListView.swift; sourceTree = "<group>"; };
 		BAFC71642ECABAD500D03760 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
@@ -106,6 +124,7 @@
 				BA15C1942ECD8A20001903C3 /* MenuTabBar.swift */,
 				BA15C1922ECD8326001903C3 /* PicksForYouView.swift */,
 				BA59D6752ED58CED00154E6A /* ViewCartButton.swift */,
+				BA15C1982ECD9642001903C3 /* MenuItemCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -134,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				BA4DBB452ED401BC00E0CAFB /* AddItemView.swift */,
-				BA4DBB472ED402CE00E0CAFB /* NotesTextFieldView.swift */,
 				BA4DBB4E2ED4136B00E0CAFB /* CustomStepperView.swift */,
 			);
 			path = Components;
@@ -145,8 +163,24 @@
 			children = (
 				BA4DBB502ED41E2800E0CAFB /* CartItemCell.swift */,
 				BA59D6772ED596B600154E6A /* EmptyStateView.swift */,
+				BADC72512ED7FD3200107CF8 /* CartItemsView.swift */,
+				BADC72552ED811B600107CF8 /* BottomButtons.swift */,
+				BADC72572ED811D700107CF8 /* PaymentSummaryView.swift */,
+				BADC72592ED811F100107CF8 /* VoucherView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		BADC724A2ED7EB6900107CF8 /* Shared views */ = {
+			isa = PBXGroup;
+			children = (
+				BADC724B2ED7EB8500107CF8 /* AddTofavoriteButton.swift */,
+				BADC724D2ED7ECAF00107CF8 /* RestaurantCellView.swift */,
+				BADC724F2ED7F64900107CF8 /* CircleSeparetor.swift */,
+				BA4DBB472ED402CE00E0CAFB /* NotesTextFieldView.swift */,
+				BADC72532ED806D600107CF8 /* AddNoteButtonLabel.swift */,
+			);
+			path = "Shared views";
 			sourceTree = "<group>";
 		};
 		BAE9F50D2EC94ABD008A247C = {
@@ -175,7 +209,6 @@
 				BAFC71642ECABAD500D03760 /* CategoriesView.swift */,
 				BAFC71652ECABAD500D03760 /* FiltersView.swift */,
 				BAFC71632ECABAD500D03760 /* RestaurantsListView.swift */,
-				BA15C1982ECD9642001903C3 /* MenuItemCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -185,6 +218,7 @@
 			children = (
 				BAFC716B2ECABAD500D03760 /* FoodScreen.swift */,
 				BAFC71772ECABAD500D03760 /* RestaurantsViewModel.swift */,
+				BADC72482ED7E8C200107CF8 /* FavoriteRestaurantsScreen.swift */,
 				BAFC716A2ECABAD500D03760 /* Components */,
 			);
 			path = Views;
@@ -213,6 +247,7 @@
 			children = (
 				BAFC71722ECABAD500D03760 /* FoodDeliveryApp.swift */,
 				BAFC718A2ECABB5900D03760 /* Core */,
+				BADC724A2ED7EB6900107CF8 /* Shared views */,
 				BAFC718F2ECABBC400D03760 /* Services */,
 				BAFC718E2ECABBA200D03760 /* Models */,
 				BAFC716E2ECABAD500D03760 /* Screens */,
@@ -385,13 +420,18 @@
 				BAFC717A2ECABAD500D03760 /* RestaurantsListView.swift in Sources */,
 				BA15C1932ECD8330001903C3 /* PicksForYouView.swift in Sources */,
 				BA4DBB4C2ED4090800E0CAFB /* CartItem.swift in Sources */,
+				BADC724E2ED7ECAF00107CF8 /* RestaurantCellView.swift in Sources */,
+				BADC72542ED806D600107CF8 /* AddNoteButtonLabel.swift in Sources */,
 				BA4DBB4F2ED4136B00E0CAFB /* CustomStepperView.swift in Sources */,
+				BADC724C2ED7EB8500107CF8 /* AddTofavoriteButton.swift in Sources */,
 				BA15C19B2ECD9739001903C3 /* RemoteImageLoader.swift in Sources */,
 				BAB679852ED2B13A001D7BE4 /* ItemDetailsView.swift in Sources */,
 				BAFC717B2ECABAD500D03760 /* CategoriesView.swift in Sources */,
 				BAFC717C2ECABAD500D03760 /* FiltersView.swift in Sources */,
+				BADC72562ED811B600107CF8 /* BottomButtons.swift in Sources */,
 				BAFC717D2ECABAD500D03760 /* OrderAgainView.swift in Sources */,
 				BA4DBB462ED401BC00E0CAFB /* AddItemView.swift in Sources */,
+				BADC72582ED811D700107CF8 /* PaymentSummaryView.swift in Sources */,
 				BA4DBB482ED402CE00E0CAFB /* NotesTextFieldView.swift in Sources */,
 				BAFC717E2ECABAD500D03760 /* PromosView.swift in Sources */,
 				BAFC717F2ECABAD500D03760 /* SearchBarView.swift in Sources */,
@@ -402,7 +442,9 @@
 				BA15C1972ECD9535001903C3 /* RestaurantInfoCard.swift in Sources */,
 				BA59D6782ED596B600154E6A /* EmptyStateView.swift in Sources */,
 				BAFC71842ECABAD500D03760 /* FoodDeliveryApp.swift in Sources */,
+				BADC725A2ED811F100107CF8 /* VoucherView.swift in Sources */,
 				BA15C1952ECD8A20001903C3 /* MenuTabBar.swift in Sources */,
+				BADC72502ED7F64900107CF8 /* CircleSeparetor.swift in Sources */,
 				BA15C18E2ECD6587001903C3 /* ImageCache.swift in Sources */,
 				BAFC719C2ECAD54800D03760 /* MenuItemsModel.swift in Sources */,
 				BAFC71852ECABAD500D03760 /* Modifiers.swift in Sources */,
@@ -416,8 +458,10 @@
 				BAFC71892ECABAD500D03760 /* RestaurantsViewModel.swift in Sources */,
 				BA59D6762ED58CED00154E6A /* ViewCartButton.swift in Sources */,
 				BA15C1992ECD9642001903C3 /* MenuItemCell.swift in Sources */,
+				BADC72492ED7E8C200107CF8 /* FavoriteRestaurantsScreen.swift in Sources */,
 				BA4DBB432ED3DB3E00E0CAFB /* ItemDetailsViewModel.swift in Sources */,
 				BAB679832ED2A6C5001D7BE4 /* APIconstants.swift in Sources */,
+				BADC72522ED7FD3200107CF8 /* CartItemsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

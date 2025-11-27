@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ItemDetailsView: View {
+struct ItemDetailsView: View{
     @Bindable var viewModel:ItemDetailsViewModel
     var body: some View {
         Spacer()
@@ -47,7 +47,7 @@ struct ItemDetailsView: View {
                     viewModel.OrderNoteIsPresent = false
                 }
                 
-                NotesView(viewModel: viewModel )
+                NotesView(viewModel: viewModel, textFieldPlaceHolder: "" )
                 .frame(height: 140)
                 .padding(.bottom)
                 .offset(x:0, y: -25)
@@ -65,31 +65,4 @@ struct ItemDetailsView: View {
         .environment(CartViewModel(RestaurantDeliveryFee: 0))
 }
 
-struct NotesButtonLabelView: View {
-    var viewModel: ItemDetailsViewModel
-    var body: some View {
-        HStack(spacing:15){
-            Image(systemName: "message")
-                .font(.title2)
-            
-            VStack(alignment:.leading){
-                Text("Any special requests?")
-                if !viewModel.orderNote.isEmpty{
-                    Text(viewModel.orderNote)
-                    .font(.callout)
-                    .lineLimit(3)
-                    .foregroundStyle(.secondary)
-                }
-            }
-            Spacer()
-            
-            Text(viewModel.orderNote.isEmpty ? "Add note" : "Edit")
-            .bold()
-            .underline()
-            .padding(.trailing,7)
-        }
-        .frame(height: 25)
-        .padding(.vertical)
-        .frame(maxWidth: .infinity)
-    }
-}
+

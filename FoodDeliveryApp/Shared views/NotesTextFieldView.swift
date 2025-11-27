@@ -8,17 +8,18 @@
 import Foundation
 import SwiftUI
 
-struct NotesView:View {
-    @Bindable var viewModel: ItemDetailsViewModel
+struct NotesView<vm:HaveNotesViewScreen>:View {
+    @Bindable var viewModel: vm
     @FocusState var isFocused:Bool
+    var textFieldPlaceHolder:String
     var body: some View {
         VStack{
             VStack(alignment: .leading,spacing: 0){
-                Text("Special request")
+                Text("Any Special requests?")
                 .font(.body)
                 .bold()
                 .foregroundStyle(.secondary)
-                TextField(viewModel.orderNote, text: $viewModel.orderNote,axis: .vertical)
+                TextField(textFieldPlaceHolder, text: $viewModel.orderNote,axis: .vertical)
                 .focused($isFocused)
                 .toolbar {
                     ToolbarItem(placement: .keyboard){

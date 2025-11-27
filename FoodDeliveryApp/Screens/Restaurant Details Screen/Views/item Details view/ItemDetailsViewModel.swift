@@ -5,9 +5,12 @@
 //  Created by Mazen Moataz on 24/11/2025.
 //
 import SwiftUI
+protocol HaveNotesViewScreen: Observable,AnyObject{
+    var orderNote:String { get set }
+}
 
 @Observable
-class ItemDetailsViewModel{
+class ItemDetailsViewModel:HaveNotesViewScreen{
     var item: MenuItem
     var itemCount = 1
     var OrderNoteIsPresent:Bool = false

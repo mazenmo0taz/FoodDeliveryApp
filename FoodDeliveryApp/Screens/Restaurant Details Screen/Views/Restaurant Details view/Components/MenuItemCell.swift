@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+
 struct MenuItemCell: View {
     let item: MenuItem
     var body: some View {

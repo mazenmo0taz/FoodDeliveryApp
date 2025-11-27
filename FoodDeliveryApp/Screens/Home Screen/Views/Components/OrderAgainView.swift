@@ -13,7 +13,7 @@ struct OrderAgainView: View {
         if images.isEmpty{
             return Array(repeating:Image("restaurantPlaceholderPH"), count:8)
         }else {
-            return (0..<8).map { _ in images.randomElement() ?? Image("restaurantPlaceholderPH")}
+            return (0..<8).map { i in images[i+1] }
         }
     }
 

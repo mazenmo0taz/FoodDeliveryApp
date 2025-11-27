@@ -8,12 +8,14 @@
 import SwiftUI
 
 @Observable
-class CartViewModel {
-    var cartNote: String = "Anything else we need to know?"
+class CartViewModel:HaveNotesViewScreen {
+    var orderNote: String = ""
     var items: [CartItem] = []
     var RestaurantDeliveryFee: Int
+    var orderNotesViewShown: Bool
     init (RestaurantDeliveryFee: Int) {
         self.RestaurantDeliveryFee = RestaurantDeliveryFee
+        self.orderNotesViewShown = false
     }
     func addToCart(itemId:Int, item: MenuItem, quantity: Int, note: String?) {
         items.append(CartItem(id: itemId, item: item, note: note,quantity:quantity))

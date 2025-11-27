@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 struct SearchBarView: View {
     @Binding var searchText: String
+    var viewModel: RestaurantsViewModel
     var body: some View {
         HStack(spacing: 12){
             Image(systemName: "magnifyingglass")
@@ -16,8 +17,8 @@ struct SearchBarView: View {
                 .frame(width: 17, height: 17)
                 .foregroundColor(.secondary)
             TextField("Search for restaurants", text: $searchText)
-                .onSubmit {
-                    print(searchText)
+                .onChange(of: searchText) {
+                    viewModel.applyFilters(searchText:searchText)
                 }
         }
         .modifier(CapsuleShapeModifier(color: .secondary.opacity(0.1)))
